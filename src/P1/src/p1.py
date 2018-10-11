@@ -2,14 +2,10 @@ from p1_support import load_level, show_level, save_level_costs
 from math import inf, sqrt
 from heapq import heappop, heappush
 
-def Find_Euclidean_Distance(start = [0,0], finish = [3,4]):
-    distance = 0    
-    x1 = start[0]
-    y1 = start[1]
-    x2 = finish[0]
-    y2 = finish[1]
-    distance = ((x2**2 - x1**2) + (y2**2 - y1**2))**0.5 # finds the Euclidean distance between the 2 lines
-    return distance
+def Find_Euclidean_Distance(start, finish):
+    x1, y1 = start;
+    x2, y2 = finish;
+    return ((x2 - x1)**2 + (y2 - y1)**2)**0.5 # finds the Euclidean distance between the 2 points
 
 def dijkstras_shortest_path(initial_position, destination, graph, adj):
     """ Searches for a minimal cost path through a graph using Dijkstra's algorithm.
@@ -35,7 +31,7 @@ def dijkstras_shortest_path(initial_position, destination, graph, adj):
     # The dictionary that will store the backpointers
     backpointers = {}
     backpointers[initial_position] = None
-    print(Find_Euclidean_Distance()) #will need to do for every point
+    print(Find_Euclidean_Distance(initial_position, destination)) #will need to do for every point
     print(initial_position)
     print(destination)
     while queue:
